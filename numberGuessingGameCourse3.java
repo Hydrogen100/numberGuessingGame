@@ -26,11 +26,22 @@ public static void main(String args[]){
 	//ask user to start guessing
 	//maybe count the number of tries required?
 	System.out.println("Please proceed with guessing now");
+	boolean gameLose=true;
+	while(gameLose){
+		input.next();
+		
+	}
 	//use while function to take in four numbers over and over
 	//incorporate a system where first number compares with first guess, second with second...etc.
 	//if first comparison is equivalent, then return a 1
 	//if second-fourth comparison is equivalent, then return 0
 	//when either 1 or 0 is returned, immediately cut off comparisons in case of doubles
 	//last check of number of 1s; if there are four 1s, then stop game and congratulate user
+	
+	//use objects and assign each number to them, also give each object a (1 to 4) comparison value for comparisons
+	//check number with first to fourth number, and assign 0 if exists but wrong position
+	//if the comparison value matches the position of the number and it's the same, override 0 with 1 
+	//create boolean isNumberTrue=false and if 1 is returned, then change it to true and skip comparisons 
+	//(change back when loop repeats again)
 }
 }
