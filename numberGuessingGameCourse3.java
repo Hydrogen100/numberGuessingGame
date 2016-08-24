@@ -27,21 +27,60 @@ public static void main(String args[]){
 	//maybe count the number of tries required?
 	System.out.println("Please proceed with guessing now");
 	boolean gameLose=true;
+	numberGuessed[] guessArray=new numberGuessed[4];
 	while(gameLose){
 		input.next();
+		String guessedNumber=input.next();
+		numberGuessed guessOne=new numberGuessed(0);
+		guessOne.guess=guessedNumber.charAt(guessOne.position);
+		numberGuessed guessTwo=new numberGuessed(1);
+		guessTwo.guess=guessedNumber.charAt(guessTwo.position);
+		numberGuessed guessThree=new numberGuessed(2);
+		guessThree.guess=guessedNumber.charAt(guessOne.position);
+		numberGuessed guessFour=new numberGuessed(3);
+		guessFour.guess=guessedNumber.charAt(guessOne.position);
 		
+		
+		guessArray[0]=guessOne;
+		guessArray[1]=guessTwo;
+		guessArray[2]=guessThree;
+		guessArray[3]=guessFour;
+		//check from one to four
+		//go through, give 0 if match in wrong place
+		//right place, give 1 and END comparisons (or make sure 1 does not got overwritten)
 	}
 	//use while function to take in four numbers over and over
-	//incorporate a system where first number compares with first guess, second with second...etc.
-	//if first comparison is equivalent, then return a 1
-	//if second-fourth comparison is equivalent, then return 0
-	//when either 1 or 0 is returned, immediately cut off comparisons in case of doubles
+	//use objects and assign each number to them, also give each object a (1 to 4) comparison value for comparisons
+		//check number with first to fourth number, and assign 0 if exists but wrong position
+		//if the comparison value matches the position of the number and it's the same, override 0 with 1 
+		//create boolean isNumberTrue=false and if 1 is returned, then change it to true and skip comparisons 
+		//(change back when loop repeats again)
 	//last check of number of 1s; if there are four 1s, then stop game and congratulate user
 	
-	//use objects and assign each number to them, also give each object a (1 to 4) comparison value for comparisons
-	//check number with first to fourth number, and assign 0 if exists but wrong position
-	//if the comparison value matches the position of the number and it's the same, override 0 with 1 
-	//create boolean isNumberTrue=false and if 1 is returned, then change it to true and skip comparisons 
-	//(change back when loop repeats again)
+	
+}
+public int checkNumber(char number, numberGuessed guessObject, numberGuessed[] a){
+	//framework
+	//insert start value of actual number
+		//loop from start value to 3 for guess, then back
+		//when start value=current value, end comparisons
+	int guessArrayIndex=guessObject.position;
+	for(int i=0; i<4; i++){
+		//first create array containing the four number answers to use here
+		
+		if(guessArrayIndex==4){
+			guessArrayIndex=guessArrayIndex-4;
+		}
+		if(number==numberGuessed[guessArrayIndex].guess){
+			
+		}
+		
+	}
+	//details
+	//check from zero to three
+			//go through, give 0 if match in wrong place
+			//right place, give 1 and END comparisons (or make sure 1 does not got overwritten)
+	
+	
 }
 }
