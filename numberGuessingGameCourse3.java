@@ -16,13 +16,19 @@ public static void main(String args[]){
 	System.out.println("On the other hand, a 1 means the number exists in the code, and is at the right location");
 	System.out.println("Please input your four numbers now");
 	Scanner input=new Scanner(System.in);
-	//reject the input if it is not 4 numbers
-	//reject if the input contains a 0
+//reject the input if it is not 4 numbers
+//reject if the input contains a 0
 	String fourNumbers=input.next();
+//next 9 lines can be simplified to 5 only
 	char one=fourNumbers.charAt(0);
 	char two=fourNumbers.charAt(1);
 	char three=fourNumbers.charAt(2);
 	char four=fourNumbers.charAt(3);
+	char[] answerArray=new char[4];
+	answerArray[0]=one;
+	answerArray[1]=two;
+	answerArray[2]=three;
+	answerArray[3]=four;
 	//ask user to start guessing
 	//maybe count the number of tries required?
 	System.out.println("Please proceed with guessing now");
@@ -40,14 +46,46 @@ public static void main(String args[]){
 		numberGuessed guessFour=new numberGuessed(3);
 		guessFour.guess=guessedNumber.charAt(guessOne.position);
 		
-		
 		guessArray[0]=guessOne;
 		guessArray[1]=guessTwo;
 		guessArray[2]=guessThree;
 		guessArray[3]=guessFour;
 		//check from one to four
-		//go through, give 0 if match in wrong place
-		//right place, give 1 and END comparisons (or make sure 1 does not got overwritten)
+		
+//SO FAR EVERYTHING ABOVE IS RIGHT
+		
+		
+		
+		for(int j=0;j<4;j++){
+			//use one of the four numbers from ACTUAL answer for comparison
+		int guessArrayIndex=guessArray[j].position;
+		String returnClue="a";
+		for(int i=0; i<4; i++){
+			//run through all 4 guesses for checks
+			
+			if(guessArrayIndex==4){
+				guessArrayIndex=guessArrayIndex-4;
+			}
+			if(answerArray[j]==guessArray[guessArrayIndex].guess){
+				if(i==0){
+					returnClue+="1";
+					//return 1 to string;
+					i=5;
+				}else{
+					returnClue+="0";
+					//return 0 to string;
+					i=5;
+				}
+			}
+			guessArrayIndex++;
+			if(returnClue=="a1111"){
+				gameLose=false;
+				System.out.println("Congratulations, you won the game!");
+			}else{
+				System.out.println(returnClue.substring(1,returnClue.length()));
+			}
+		}
+	}
 	}
 	//use while function to take in four numbers over and over
 	//use objects and assign each number to them, also give each object a (1 to 4) comparison value for comparisons
@@ -59,28 +97,19 @@ public static void main(String args[]){
 	
 	
 }
-public int checkNumber(char number, numberGuessed guessObject, numberGuessed[] a){
+
 	//framework
 	//insert start value of actual number
 		//loop from start value to 3 for guess, then back
 		//when start value=current value, end comparisons
-	int guessArrayIndex=guessObject.position;
-	for(int i=0; i<4; i++){
-		//first create array containing the four number answers to use here
-		
-		if(guessArrayIndex==4){
-			guessArrayIndex=guessArrayIndex-4;
-		}
-		if(number==numberGuessed[guessArrayIndex].guess){
-			
-		}
-		
-	}
+
+	
+	
 	//details
 	//check from zero to three
 			//go through, give 0 if match in wrong place
 			//right place, give 1 and END comparisons (or make sure 1 does not got overwritten)
 	
 	
-}
+
 }
