@@ -35,16 +35,15 @@ public static void main(String args[]){
 	boolean gameLose=true;
 	numberGuessed[] guessArray=new numberGuessed[4];
 	while(gameLose){
-		input.next();
 		String guessedNumber=input.next();
 		numberGuessed guessOne=new numberGuessed(0);
 		guessOne.guess=guessedNumber.charAt(guessOne.position);
 		numberGuessed guessTwo=new numberGuessed(1);
 		guessTwo.guess=guessedNumber.charAt(guessTwo.position);
 		numberGuessed guessThree=new numberGuessed(2);
-		guessThree.guess=guessedNumber.charAt(guessOne.position);
+		guessThree.guess=guessedNumber.charAt(guessThree.position);
 		numberGuessed guessFour=new numberGuessed(3);
-		guessFour.guess=guessedNumber.charAt(guessOne.position);
+		guessFour.guess=guessedNumber.charAt(guessFour.position);
 		
 		guessArray[0]=guessOne;
 		guessArray[1]=guessTwo;
@@ -59,6 +58,7 @@ public static void main(String args[]){
 		for(int j=0;j<4;j++){
 			//use one of the four numbers from ACTUAL answer for comparison
 		int guessArrayIndex=guessArray[j].position;
+		//System.out.println(guessArrayIndex);
 		String returnClue="a";
 		for(int i=0; i<4; i++){
 			//run through all 4 guesses for checks
@@ -69,24 +69,41 @@ public static void main(String args[]){
 			if(answerArray[j]==guessArray[guessArrayIndex].guess){
 				if(i==0){
 					returnClue+="1";
+					//System.out.println(returnClue);
 					//return 1 to string;
 					i=5;
 				}else{
+					
 					returnClue+="0";
 					//return 0 to string;
 					i=5;
 				}
 			}
 			guessArrayIndex++;
-			if(returnClue=="a1111"){
-				gameLose=false;
-				System.out.println("Congratulations, you won the game!");
-			}else{
-				System.out.println(returnClue.substring(1,returnClue.length()));
-			}
+			
+		}
+//UPON TESTING, THE METHODS WORK CORRECTLY IN DETERMINING SIMILARITY
+//FIND A WAY TO COMBINE THE STRING OUTPUTS TOGETHER INTO ONE STRING
+//GET STRING RESULT TO BE COMPARED CORRECTLY WITH a1111 TO LET USER WIN		
+		if(returnClue=="a1111"){
+			gameLose=false;
+			System.out.println("Congratulations, you won the game!");
+		}else{
+			System.out.println(returnClue.substring(1,returnClue.length()));
 		}
 	}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//use while function to take in four numbers over and over
 	//use objects and assign each number to them, also give each object a (1 to 4) comparison value for comparisons
 		//check number with first to fourth number, and assign 0 if exists but wrong position
