@@ -53,13 +53,15 @@ public static void main(String args[]){
 		
 //SO FAR EVERYTHING ABOVE IS RIGHT
 		
-		
+		int countCorrectSpot=0;
+		int countCorrectWrongSpot=0;
 		
 		for(int j=0;j<4;j++){
 			//use one of the four numbers from ACTUAL answer for comparison
 		int guessArrayIndex=guessArray[j].position;
 		//System.out.println(guessArrayIndex);
-		String returnClue="a";
+		//String returnClue="a";
+		
 		for(int i=0; i<4; i++){
 			//run through all 4 guesses for checks
 			
@@ -68,13 +70,13 @@ public static void main(String args[]){
 			}
 			if(answerArray[j]==guessArray[guessArrayIndex].guess){
 				if(i==0){
-					returnClue+="1";
+					countCorrectSpot+=1;
 					//System.out.println(returnClue);
 					//return 1 to string;
 					i=5;
 				}else{
 					
-					returnClue+="0";
+					countCorrectWrongSpot+=0;
 					//return 0 to string;
 					i=5;
 				}
@@ -82,16 +84,18 @@ public static void main(String args[]){
 			guessArrayIndex++;
 			
 		}
-//UPON TESTING, THE METHODS WORK CORRECTLY IN DETERMINING SIMILARITY
-//FIND A WAY TO COMBINE THE STRING OUTPUTS TOGETHER INTO ONE STRING
-//GET STRING RESULT TO BE COMPARED CORRECTLY WITH a1111 TO LET USER WIN		
-		if(returnClue=="a1111"){
+//UPON TESTING, THE METHODS WORK CORRECTLY IN DETERMINING CORRECT ANSWERS AT CORRECT SPOTS
+//ISSUE WITH COUNTING CORRECT GUESSES AT WRONG SPOTS...ALWAYS RETURNING 0	
+		
+	}
+		if(countCorrectSpot==4){
 			gameLose=false;
 			System.out.println("Congratulations, you won the game!");
 		}else{
-			System.out.println(returnClue.substring(1,returnClue.length()));
+			System.out.println("Number in correct spots: "+countCorrectSpot);
+			System.out.println("Number of correct guesses but in wrong spots: "+ countCorrectWrongSpot);
+			
 		}
-	}
 	}
 	
 	
