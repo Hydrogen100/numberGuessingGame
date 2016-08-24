@@ -75,8 +75,7 @@ public static void main(String args[]){
 					//return 1 to string;
 					i=5;
 				}else{
-					
-					countCorrectWrongSpot+=0;
+					countCorrectWrongSpot+=1;
 					//return 0 to string;
 					i=5;
 				}
