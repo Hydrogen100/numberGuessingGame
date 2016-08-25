@@ -26,8 +26,9 @@ public static void main(String args[]){
 	answerArray[3]=fourNumbers.charAt(3);
 	int countForZero=0;
 	for(int a=0;a<4;a++){
-		if(answerArray[a]!=0){
+		if((answerArray[a])!='0'){
 			countForZero++;
+    //something wrong here, countForZero equals four even with zeros in answer
 		}
 	}
 	if(fourNumbers.length()==4&&countForZero==4){
@@ -94,8 +95,6 @@ public static void main(String args[]){
 			guessArrayIndex++;
 			
 		}
-//UPON TESTING, THE METHODS WORK CORRECTLY IN DETERMINING CORRECT ANSWERS AT CORRECT SPOTS
-//ISSUE WITH COUNTING CORRECT GUESSES AT WRONG SPOTS...ALWAYS RETURNING 0	
 		
 	}
 		if(countCorrectSpot==4){
