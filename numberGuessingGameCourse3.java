@@ -47,20 +47,35 @@ public static void main(String args[]){
 	numberGuessed[] guessArray=new numberGuessed[4];
 	int tries=1;
 	while(gameLose){
-		String guessedNumber=input.next();
-		numberGuessed guessOne=new numberGuessed(0);
-		guessOne.guess=guessedNumber.charAt(guessOne.position);
-		numberGuessed guessTwo=new numberGuessed(1);
-		guessTwo.guess=guessedNumber.charAt(guessTwo.position);
-		numberGuessed guessThree=new numberGuessed(2);
-		guessThree.guess=guessedNumber.charAt(guessThree.position);
-		numberGuessed guessFour=new numberGuessed(3);
-		guessFour.guess=guessedNumber.charAt(guessFour.position);
+		boolean wrongString2=true;
+		while(wrongString2){
+			String guessedNumber=input.next();
+			int countForZero=0;
+			numberGuessed guessOne=new numberGuessed(0);
+			guessOne.guess=guessedNumber.charAt(guessOne.position);
+			numberGuessed guessTwo=new numberGuessed(1);
+			guessTwo.guess=guessedNumber.charAt(guessTwo.position);
+			numberGuessed guessThree=new numberGuessed(2);
+			guessThree.guess=guessedNumber.charAt(guessThree.position);
+			numberGuessed guessFour=new numberGuessed(3);
+			guessFour.guess=guessedNumber.charAt(guessFour.position);
+			
+			guessArray[0]=guessOne;
+			guessArray[1]=guessTwo;
+			guessArray[2]=guessThree;
+			guessArray[3]=guessFour;
+			for(int a=0;a<4;a++){
+				if(guessArray[a].guess!='0'){
+					countForZero++;
+				}
+			}
+			if(guessedNumber.length()==4&&countForZero==4){
+				wrongString2=false;
+			}else{
+				System.out.println("Please input again");
+			}
+		}
 		
-		guessArray[0]=guessOne;
-		guessArray[1]=guessTwo;
-		guessArray[2]=guessThree;
-		guessArray[3]=guessFour;
 		//check from one to four
 		
 //SO FAR EVERYTHING ABOVE IS RIGHT
