@@ -8,35 +8,30 @@ public static void main(String args[]){
 	//split each number in the string into a char variable and do comparisons
 	//now ask user for guesses
 	//return 0s and 1s accordingly
-	System.out.println("Hello, this program is a number guessing game based on MasterMind.");
+	System.out.println("Hello, this program is a number guessing game.");
 	System.out.println("The goal of the game is to guess the numbers in the correct order");
-	System.out.println("First, input four numbers with no spaces in between from 1-9");
-	System.out.println("Please input your four numbers now");
 	Scanner input=new Scanner(System.in);
     //reject the input if it is not 4 numbers
 //REJECT IF THE INPUT CONTAINS a 0
-	boolean wrongString=true;
-	String fourNumbers="a";
+	boolean yesZero=true;
 	char[] answerArray=new char[4];
-	while(wrongString){
-	fourNumbers=input.next();
-	answerArray[0]=fourNumbers.charAt(0);
-	answerArray[1]=fourNumbers.charAt(1);
-	answerArray[2]=fourNumbers.charAt(2);
-	answerArray[3]=fourNumbers.charAt(3);
-	int countForZero=0;
+	while(yesZero){
+		int countForZero;
+		countForZero=0;
+	int fourNumbers=(int)(Math.random()*10000);
+	String fourNumbersString=Integer.toString(fourNumbers);
+	answerArray[0]=fourNumbersString.charAt(0);
+	answerArray[1]=fourNumbersString.charAt(1);
+	answerArray[2]=fourNumbersString.charAt(2);
+	answerArray[3]=fourNumbersString.charAt(3);
 	for(int a=0;a<4;a++){
-		if((answerArray[a])!='0'){
+		if(answerArray[a]=='0'){
 			countForZero++;
-    //something wrong here, countForZero equals four even with zeros in answer
 		}
 	}
-	if(fourNumbers.length()==4&&countForZero==4){
-		wrongString=false;
-	}else{
-	System.out.println("Please input again");
+	if(countForZero==0){
+		yesZero=false;
 	}
-	
 	}
 	
 	
